@@ -1,4 +1,4 @@
-package ua.hillel.tatiana;
+package ua.hillel.tatiana.lesson2;
 
 public class Main {
     //shift=F6 -переіменовать

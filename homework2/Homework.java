@@ -1,4 +1,4 @@
-package ua.hillel.tatiana;
+package ua.hillel.tatiana.homework2;
 
 import java.util.Scanner;
 

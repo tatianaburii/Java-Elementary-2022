@@ -20,7 +20,7 @@ public class Method {
     }
 
     public static int generateRandom(int range) {
-        int number = (int) (Math.random() * 10);
+        int number = (int) (Math.random() * 100);
         return number;
 
     }
