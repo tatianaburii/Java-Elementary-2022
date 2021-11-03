@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class Palindrome {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введіть рядок:");
         String s = reader.readLine();
         if (isPalindrome(s)) {

@@ -3,26 +3,30 @@ package ua.hillel.tatiana.lesson11;
 public class DogMain {
 
     public static void main(String[] args) {
-        Dog dog = new Dog();
+        DogOne dog = new DogOne();
         dog.run();
 
-        System.out.println(dog.name);
-        System.out.println(dog.age);
+        System.out.println(dog.getName());
+        System.out.println(dog.getAge());
 
-        dog.name = "Bobik";
-        dog.age = 3;
+        dog.setName("Bobik");
+        dog.setAge(3);
 
-        System.out.println(dog.name);
-        System.out.println(dog.age);
-        Dog dog1 = dog;
+        System.out.println(dog.getAge());
+        System.out.println(dog.getName());
+        DogOne dog2 = dog;
+
         System.out.println(dog);
-        System.out.println(dog1);
-
-        Dog dog2 = new Dog();
         System.out.println(dog2);
-        dog1.name = "Sharik";
-        System.out.println(dog1.name);
-        System.out.println(dog.name);
+
+        DogOne dog3 = new DogOne();
+
+        System.out.println(dog3);
+
+        dog2.setName("Sharik");
+
+        System.out.println("dog name:" + dog.getName());
+        System.out.println("dog2 name:" + dog2.getName());
 
 
     }

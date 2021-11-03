@@ -2,26 +2,27 @@ package ua.hillel.tatiana.lesson11;
 
 public class DogComparator {
     public static void main(String[] args) {
-        Dog dog1 = new Dog("Knopa");
-        Dog dog2 = dog1;
-        Dog dog3 = new Dog("Nitshe", 20);
-        Dog dog4 = new Dog("Knopa");
+        DogOne dog1 = new DogOne("Knopa");
+        DogOne dog2 = dog1;
+        DogOne dog3 = new DogOne("Nitshe", 20);
+        DogOne dog4 = new DogOne("Knopa");
+
         System.out.println(dog1);
         System.out.println(dog2);
         System.out.println(dog3);
         System.out.println(dog4);
 
-        if (dog1 == dog2){
-            System.out.println("Link is equal");
+        compare(dog1, dog2, "dog 1 == dog2: Links are equal", "dog1.equals(dog2): Values are equal");
+        compare(dog1, dog3, "dog 1 == dog2: Links are equal", "dog1.equals(dog3): Values are equal");
+        compare(dog1, dog2, "dog 1 == dog4: Links are equal", "dog1.equals(dog4): Values are equal");
+    }
+
+    private static void compare(DogOne dog1, DogOne dog2, String s, String s2) {
+        if (dog1 == dog2) {
+            System.out.println(s);
         }
         if (dog1.equals(dog2)) {
-            System.out.println("Values are equal");
-        }
-        if (dog1 == dog3){
-            System.out.println("Link is equal");
-        }
-        if (dog1.equals(dog3)) {
-            System.out.println("Values are equal");
+            System.out.println(s2);
         }
     }
 }
