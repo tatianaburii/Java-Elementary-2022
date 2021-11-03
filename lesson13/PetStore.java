@@ -25,9 +25,7 @@ public class PetStore {
         animals.add(dog);
         animals.add(parrot);
         String input;
-        while (!(input = BufferedReader.readLine()).equels("exit")) {
 
-        }
         for (Animal animal1: animals) {
             animal1.speak();
         }

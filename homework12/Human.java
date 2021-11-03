@@ -3,8 +3,8 @@ package ua.hillel.tatiana.homework12;
 public class Human {
 
     private String name;
-    Human father;
-    Human mother;
+    private Human father;
+    private Human mother;
 
     public Human(String name, Human father, Human mother) {
         this.name = name;
@@ -13,25 +13,21 @@ public class Human {
         System.out.println(this);
     }
 
-    public Human() {
-    }
-
     public Human(String name) {
         this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Human: name - " + this.name + ", father - " + this.father + ", mother - " + this.mother;
+        return "Human: name - " + this.name + ", father - "
+                + this.father + ", mother - " + this.mother;
     }
 
     public String getName() {
-
         return name;
     }
 
     public void setName(String name) {
-
         this.name = name;
     }
 
