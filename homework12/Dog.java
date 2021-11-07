@@ -8,9 +8,6 @@ public class Dog {
     private int weight;
     private int age;
 
-    public Dog() {
-        ++COUNT;
-    }
 
     public Dog(String name, String breed, int weight, int age) {
         this.name = name;
@@ -19,7 +16,6 @@ public class Dog {
         this.age = age;
         ++COUNT;
         System.out.println(this);
-
     }
 
     @Override

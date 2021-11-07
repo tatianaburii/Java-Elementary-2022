@@ -14,8 +14,6 @@ public class Family {
         child.printFamily();
     }
 
-
-
     public static Human createHuman() throws IOException {
         System.out.println("Input parent's name: ");
         String name = reader.readLine();
@@ -27,8 +25,5 @@ public class Family {
         String name = reader.readLine();
         return new Human(name, createHuman(), createHuman());
     }
-
-
-
 
 }
