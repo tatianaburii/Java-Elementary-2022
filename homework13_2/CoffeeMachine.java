@@ -16,17 +16,18 @@ public class CoffeeMachine {
         System.out.println(" What drink would you like?");
 
         while (!(input = reader.readLine()).equals("stop")) {
-            drinks.add(chooseDrink(DrinkType.valueOf(input)));
+            try {
+                drinks.add(chooseDrink(DrinkType.valueOf(input)));
+            }
+            catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
         }
-
         calculateOrderPrice(drinks);
         printDrinkPrice(drinks);
-
-
     }
 
     public static Drink chooseDrink(DrinkType type) {
-
         Drink drink = null;
         switch (type) {
 
@@ -42,11 +43,10 @@ public class CoffeeMachine {
             case TEA:
                 drink = new Tea(50);
                 break;
-            default:
-                System.out.println("Unknown coffee type!");
         }
         return drink;
     }
+
 
     public static void calculateOrderPrice(ArrayList<Drink> drinks) {
         int orderPrice = 0;
