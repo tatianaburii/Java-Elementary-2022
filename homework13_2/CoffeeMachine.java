@@ -6,46 +6,46 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class CoffeeMachine {
+
     public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
+
+        String input;
+        ArrayList<Drink> drinks = new ArrayList<>();
         System.out.println(" What drink would you like?");
 
-        ArrayList<Drink> drinks = makeOrder();
-        printDrinkPrice(drinks);
+        while (!(input = reader.readLine()).equals("stop")) {
+            drinks.add(chooseDrink(DrinkType.valueOf(input)));
+        }
+
         calculateOrderPrice(drinks);
+        printDrinkPrice(drinks);
+
 
     }
 
-    public static ArrayList<Drink> makeOrder() throws IOException {
-        ArrayList<Drink> drinks = new ArrayList<>();
-        String input;
-        while (!(input = reader.readLine()).equals("stop")) {
-            Drink drink;
-            switch (input) {
+    public static Drink chooseDrink(DrinkType type) {
 
-                case "americano":
-                    drink = new Americano(50);
-                    drinks.add(drink);
-                    break;
-                case "latte":
-                    drink = new Latte(60);
-                    drinks.add(drink);
-                    break;
-                case "cappuccino":
-                    drink = new Cappuccino(60);
-                    drinks.add(drink);
-                    break;
-                case "tea":
-                    drink = new Tea(50);
-                    drinks.add(drink);
-                    break;
+        Drink drink = null;
+        switch (type) {
 
-                default:
-                    System.out.println("Unknown coffee type!");
-            }
+            case AMERICANO:
+                drink = new Americano(50);
+                break;
+            case LATTE:
+                drink = new Latte(60);
+                break;
+            case CAPPUCCINO:
+                drink = new Cappuccino(60);
+                break;
+            case TEA:
+                drink = new Tea(50);
+                break;
+            default:
+                System.out.println("Unknown coffee type!");
         }
-        return drinks;
+        return drink;
     }
 
     public static void calculateOrderPrice(ArrayList<Drink> drinks) {
