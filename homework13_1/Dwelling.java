@@ -1,18 +1,17 @@
 package ua.hillel.tatiana.homework13_1;
 
-import java.io.IOException;
 
 public class Dwelling extends RealEstate {
-    public Dwelling(int S, int taxK) {
+   private int percent;
+
+    public Dwelling(int S, int taxK, int percent) {
         super(S, taxK);
+        this.percent = percent;
     }
 
     @Override
-    public double calculateTax() throws IOException {
-        System.out.println("Input percent of subsidy:");
-        double percent = Integer.parseInt(reader.readLine());
-        double sumTax = S * taxK * (1 - percent / 100);
+    public double calculateTax() {
+        double sumTax = S * taxK * (1 - percent / 100.0);
         return sumTax;
     }
-
 }

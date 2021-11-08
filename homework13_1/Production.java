@@ -8,8 +8,4 @@ public class Production extends RealEstate {
         super(S, taxK);
     }
 
-    public double calculateTax() {
-        int sumTax = S * taxK;
-        return sumTax;
-    }
 }

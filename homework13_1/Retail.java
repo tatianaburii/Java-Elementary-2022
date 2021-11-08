@@ -1,18 +1,17 @@
 package ua.hillel.tatiana.homework13_1;
 
-import java.io.IOException;
 
 public class Retail extends RealEstate {
-    public Retail(int S, int taxK) {
+     private int revenue;
+    public Retail(int S, int taxK, int revenue) {
         super(S, taxK);
+        this.revenue = revenue;
     }
 
     @Override
-    public double calculateTax() throws IOException {
-        System.out.println("Input revenue:");
-        int revenue = Integer.parseInt(reader.readLine());
+    public double calculateTax() {
         int sumTax = S * taxK;
-        if (revenue < 100) {
+        if (revenue < 100.0) {
             sumTax = 0;
         }
         return sumTax;
