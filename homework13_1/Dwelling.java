@@ -11,7 +11,7 @@ public class Dwelling extends RealEstate {
 
     @Override
     public double calculateTax() {
-        double sumTax = S * taxK * (1 - percent / 100.0);
-        return sumTax;
+       return S * taxK * (1 - percent / 100.0);
+
     }
 }

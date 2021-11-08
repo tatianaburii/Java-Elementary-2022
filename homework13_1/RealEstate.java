@@ -10,9 +10,7 @@ public class RealEstate {
     }
 
     public double calculateTax() {
-        int sumTax;
-        sumTax = S * taxK;
-        return sumTax;
+        return S * taxK;
     }
 
 }
