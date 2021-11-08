@@ -18,8 +18,7 @@ public class CoffeeMachine {
         while (!(input = reader.readLine()).equals("stop")) {
             try {
                 drinks.add(chooseDrink(DrinkType.valueOf(input)));
-            }
-            catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }

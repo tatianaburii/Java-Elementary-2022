@@ -8,12 +8,11 @@ public class Dwelling extends RealEstate {
     }
 
     @Override
-    public void calculateTax() throws IOException {
+    public double calculateTax() throws IOException {
         System.out.println("Input percent of subsidy:");
         double percent = Integer.parseInt(reader.readLine());
         double sumTax = S * taxK * (1 - percent / 100);
-
-        System.out.println("Dwelling tax = " + sumTax);
+        return sumTax;
     }
 
 }

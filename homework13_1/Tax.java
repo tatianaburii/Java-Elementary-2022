@@ -10,60 +10,68 @@ public class Tax {
 
     public static void main(String[] args) throws IOException {
 
-        ArrayList<RealEstate> realEstates = createRealEstate();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String input;
+        ArrayList<RealEstate> realEstates = new ArrayList<>();
+
+        while (!(input = reader.readLine()).equals("exit")) {
+            try {
+                realEstates.add(createRealEstate(RealEstateType.valueOf(input)));
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         for (RealEstate taxes1 : realEstates) {
-            taxes1.calculateTax();
+            System.out.println("Tax = " + taxes1.calculateTax());
         }
     }
 
 
-    public static ArrayList<RealEstate> createRealEstate() throws IOException {
-        ArrayList<RealEstate> taxes = new ArrayList<>();
-        String input;
-        while (!(input = reader.readLine()).equals("exit")) {
-            RealEstate realEstate;
-            int S;
-            int taxK;
-            switch (input) {
-                case "dwelling":
-                    System.out.println("Input S: ");
-                    S = Integer.parseInt(reader.readLine());
+    public static RealEstate createRealEstate(RealEstateType type) {
+        RealEstate realEstate = null;
+        switch (type) {
+            case DWELLING:
+                try {
+                    realEstate = new Dwelling(inputS(), inputTaxK());
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
 
-                    System.out.println("Input texK:");
-                    taxK = Integer.parseInt(reader.readLine());
+            case RETAIL:
+                try {
+                    realEstate = new Retail(inputS(), inputTaxK());
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
 
-                    realEstate = new Dwelling(S, taxK);
-                    taxes.add(realEstate);
-                    break;
+            case PRODUCTION:
+                try {
+                    realEstate = new Production(inputS(), inputTaxK());
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
 
-                case "retail":
-                    System.out.println("Input S: ");
-                    S = Integer.parseInt(reader.readLine());
-
-                    System.out.println("Input texK:");
-                    taxK = Integer.parseInt(reader.readLine());
-
-                    realEstate = new Retail(S, taxK);
-                    taxes.add(realEstate);
-                    break;
-
-                case "production":
-                    System.out.println("Input S: ");
-                    S = Integer.parseInt(reader.readLine());
-
-                    System.out.println("Input texK:");
-                    taxK = Integer.parseInt(reader.readLine());
-
-                    realEstate = new Production(S, taxK);
-                    taxes.add(realEstate);
-                    break;
-
-                default:
-                    System.out.println("Unknown tax type!");
-            }
         }
-        return taxes;
+        return realEstate;
+    }
+
+
+    public static int inputS() throws IOException {
+        int S;
+        System.out.println("Input S: ");
+        S = Integer.parseInt(reader.readLine());
+        return S;
+    }
+
+    public static int inputTaxK() throws IOException {
+        int taxK;
+        System.out.println("Input taxK: ");
+        taxK = Integer.parseInt(reader.readLine());
+        return taxK;
     }
 
 }
