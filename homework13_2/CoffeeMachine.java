@@ -10,10 +10,22 @@ public class CoffeeMachine {
     public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
+        do {
+            ArrayList<Drink> drinks = createOrder();
+            calculateOrderPrice(drinks);
+            makeDrinkAndPrintPrice(drinks);
+
+            System.out.println("Are you want create more order? ");
+        } while (!reader.readLine().equals("no"));
+
+    }
+
+    public static ArrayList<Drink> createOrder() throws IOException {
+
+        System.out.println(" What drink would you like?");
 
         String input;
         ArrayList<Drink> drinks = new ArrayList<>();
-        System.out.println(" What drink would you like?");
 
         while (!(input = reader.readLine()).equals("stop")) {
             try {
@@ -22,8 +34,7 @@ public class CoffeeMachine {
                 System.out.println(e.getMessage());
             }
         }
-        calculateOrderPrice(drinks);
-        printDrinkPrice(drinks);
+        return drinks;
     }
 
     public static Drink chooseDrink(DrinkType type) {
@@ -56,7 +67,7 @@ public class CoffeeMachine {
 
     }
 
-    public static void printDrinkPrice(ArrayList<Drink> drinks) {
+    public static void makeDrinkAndPrintPrice(ArrayList<Drink> drinks) {
         for (Drink drink : drinks) {
             drink.makeDrink();
             System.out.println("Drink price: " + drink.price);
