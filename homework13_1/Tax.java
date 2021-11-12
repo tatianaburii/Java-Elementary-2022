@@ -26,55 +26,30 @@ public class Tax {
         }
     }
 
-    public static RealEstate createRealEstate(RealEstateType type) {
+    public static RealEstate createRealEstate(RealEstateType type) throws IOException{
         RealEstate realEstate = null;
-        try {
             switch (type) {
                 case DWELLING:
-                    realEstate = new Dwelling(inputS(), inputTaxK(), inputPercent());
+                    System.out.println("Input: S, taxK, percent.");
+                    realEstate = new Dwelling(inputData(),inputData(),inputData());
                     break;
                 case RETAIL:
-                    realEstate = new Retail(inputS(), inputTaxK(), inputRevenue());
+                    System.out.println("Input: S, taxK, revenue.");
+                    realEstate = new Retail(inputData(),inputData(),inputData());
                     break;
 
                 case PRODUCTION:
-                    realEstate = new Production(inputS(), inputTaxK());
+                    System.out.println("Input: S, taxK.");
+                    realEstate = new Production(inputData(),inputData());
                     break;
             }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
         return realEstate;
     }
-
-
-    public static int inputS() throws IOException {
-        int S;
-        System.out.println("Input S: ");
-        S = Integer.parseInt(reader.readLine());
-        return S;
+    public static int inputData() throws IOException {
+        int input;
+        input = Integer.parseInt(reader.readLine());
+        return input;
     }
-
-    public static int inputTaxK() throws IOException {
-        int taxK;
-        System.out.println("Input taxK: ");
-        taxK = Integer.parseInt(reader.readLine());
-        return taxK;
-    }
-    public static int inputPercent() throws IOException {
-        int percent;
-        System.out.println("Input percent: ");
-        percent = Integer.parseInt(reader.readLine());
-        return percent;
-    }
-    public static int inputRevenue() throws IOException {
-        int revenue;
-        System.out.println("Input revenue: ");
-        revenue = Integer.parseInt(reader.readLine());
-        return revenue;
-    }
-
-
 }
 
 
