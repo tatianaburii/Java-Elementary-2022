@@ -1,4 +1,4 @@
-package homework2;
+package ua.hillel.tatiana.elementary_homework_2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
