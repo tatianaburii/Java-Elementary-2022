@@ -8,11 +8,11 @@ public class Bank {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         byte months = 12;
-        System.out.println("Input money:");
+        System.out.println("Input money: ");
         double money = Double.parseDouble(reader.readLine());
-        System.out.println("Input percent:");
+        System.out.println("Input percent: ");
         double percent = Double.parseDouble(reader.readLine());
-        System.out.println("Input years:");
+        System.out.println("Input years: ");
         byte years = Byte.parseByte(reader.readLine());
 
         Bank bank = new Bank();
