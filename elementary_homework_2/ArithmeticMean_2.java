@@ -2,10 +2,10 @@ package ua.hillel.tatiana.elementary_homework_2;
 
 public class ArithmeticMean_2 {
     public static void main(String[] args) {
-        int sum = 0;
+        double sum = 0;
         if (args.length == 2) {
             for (String str : args) {
-                int i = Integer.valueOf(str);
+                double i = Double.valueOf(str);
                 sum += i;
             }
             System.out.println("Result: " + sum / 2);

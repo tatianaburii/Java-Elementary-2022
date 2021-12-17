@@ -10,12 +10,12 @@ public class ArithmeticMean {
         ArithmeticMean numbers = new ArithmeticMean();
         System.out.println("Result: " + numbers.calculateArithmeticMean());
     }
-    public int calculateArithmeticMean()throws IOException{
+    public double calculateArithmeticMean()throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Input first number:");
-        int input_one = Integer.parseInt(reader.readLine());
+        double input_one = Double.parseDouble(reader.readLine());
         System.out.println("Input second number:");
-        int input_two = Integer.parseInt(reader.readLine());
+        double input_two = Double.parseDouble(reader.readLine());
         return (input_one + input_two)/2;
     }
 }
