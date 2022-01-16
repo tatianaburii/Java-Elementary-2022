@@ -1,10 +1,5 @@
 package ua.hillel.tatiana.elementary_homework_5;
 
-import java.io.BufferedReader;
-
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-
 public class Student {
     private static int STUDENT_NUMBER = 0;
     private int id = STUDENT_NUMBER;
@@ -17,7 +12,6 @@ public class Student {
     private String faculty;
     private int course;
     private String group;
-   public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 
 

@@ -11,6 +11,25 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         //System.out.println("Input number of students:");
+
+
+        /*
+        * Создать класс, спецификация которого приведена ниже. Определить конструкторы и методы setТип(),
+        * getТип(), toString(). Определить дополнительно методы в классе, создающем массив объектов.
+        * Задать критерий выбора данных и вывести эти данные на консоль. В каждом классе, обладающем информацией,
+        * должно быть объявлено несколько конструкторов.
+
+        *Student: id, Фамилия, Имя, Отчество, Год рождения, Адрес, Телефон, Факультет, Курс, Группа.
+
+        *Создать массив из 10 объектов.
+        * a) список студентов заданного факультета; - Факульет
+        *b) списки студентов для каждого факультета и курса; - Факультет, Группа
+        *c) список студентов, родившихся после заданного года; - Год рождения
+        *d) список учебной группы. - Группа
+        **/
+
+
+        //Створила 10 студентів, але залишила варіант створення через консоль
         Student[] students = new Student[10];
 
         students[0] = new Student("Savka", "Savvatii", "Alexandrovich", 2003,
@@ -54,10 +73,14 @@ public class Main {
 
     }
 
-    /*public static int inputData() throws IOException {
+    //для консольного авріанту створення об'єктів
+    /*
+    public static int inputData() throws IOException {
         return Integer.parseInt(reader.readLine());
-    }*/
+    }
+    */
 
+    //друкує перелік студентів заданого факнльтету
     public static void printFacultyStudentsList(Student[] students) throws IOException {
         System.out.println("Choose name of Faculty: ");
         for (String faculty: createListOfFaculty(students)) {
@@ -73,6 +96,7 @@ public class Main {
         }
     }
 
+    //друкує перелік студентів заданої групи
     public static void printGroupStudentsList(Student[] students) throws IOException {
         System.out.println("Choose name of Group: ");
         for (String group: createListOfGroups(students)) {
@@ -90,6 +114,7 @@ public class Main {
     }
 
 
+    //друкує перелік студентів старших, ніж введений рік
     public static void printStudentsAgeList(Student[] students) throws IOException {
         System.out.println("Input year: ");
         int input = Integer.parseInt(reader.readLine());
@@ -104,6 +129,7 @@ public class Main {
         }
     }
 
+    //створює список факультетів
     public static ArrayList<String> createListOfFaculty(Student[] students) {
         ArrayList<String> faculties = new ArrayList<>();
         for (Student student : students) {
@@ -122,6 +148,7 @@ public class Main {
         return faculties;
     }
 
+    //створює список груп
     public static ArrayList<String> createListOfGroups(Student[] students) {
         ArrayList<String> groups = new ArrayList<>();
         for (Student student : students) {
@@ -140,6 +167,7 @@ public class Main {
     }
 
 
+    //друкує перелік студентів по факультетах
     public static void printListOfStudentsAtTheFaculty(Student[] students) {
         for (String faculty : createListOfFaculty(students)) {
             System.out.println("Faculty: " + faculty);
@@ -152,6 +180,7 @@ public class Main {
         }
     }
 
+    //друкує перелік студентів по групах
     public static void printListOfStudentsAtTheGroup(Student[] students) {
         for (String group : createListOfGroups(students)) {
             System.out.println("Group: " + group);
