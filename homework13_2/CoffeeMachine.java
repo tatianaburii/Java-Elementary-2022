@@ -15,7 +15,7 @@ public class CoffeeMachine {
             calculateOrderPrice(drinks);
             makeDrinkAndPrintPrice(drinks);
 
-            System.out.println("Do  you want to place another order? ");
+            System.out.println("Do you want to place another order? ");
         } while (!reader.readLine().equals("no"));
 
     }

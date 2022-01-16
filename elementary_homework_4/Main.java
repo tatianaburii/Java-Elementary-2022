@@ -28,8 +28,6 @@ public class Main {
         double sum = i * (machine.getCOUNT() - machine.calculateTheRestGasoline(inputData()));
         System.out.println("Вартість поїздки: " + sum);
 
-
-
     }
 
     public static int inputData() throws IOException {
