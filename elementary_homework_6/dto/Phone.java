@@ -14,10 +14,10 @@ public class Phone {
     private double credit;
     private int timeInCity;
     private int timeOutCity;
-    private double internet;
+    private int internet;
 
     public Phone(String surname, String name, String patronymic, int year, String address, String phone, String card,
-                 double debit, double credit, int timeInCity, int timeOutCity, double internet) {
+                 double debit, double credit, int timeInCity, int timeOutCity, int internet) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -35,7 +35,7 @@ public class Phone {
 
     @Override
     public String toString() {
-        return "Phone{ "  + surname + " " + name + " " + patronymic + " " +
+        return "Phone{ " + surname + " " + name + " " + patronymic + " " +
                 " - timeInCity = " + timeInCity +
                 ", timeOutCity = " + timeOutCity +
                 ", internet = " + internet +
@@ -134,9 +134,8 @@ public class Phone {
         return internet;
     }
 
-    public void setInternet(double internet) {
+    public void setInternet(int internet) {
         this.internet = internet;
     }
-
 
 }

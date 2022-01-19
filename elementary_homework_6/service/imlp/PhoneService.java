@@ -38,9 +38,9 @@ public class PhoneService implements Calculable {
         return phones;
     }
 
-    public void compareAndPrintInternetMax(ArrayList<Phone> phones, Comparator<Phone> comparator2) {
-        System.out.println("10 Subscribers with max internet traffic: ");
-        Collections.sort(phones, comparator2.reversed());
+    public void compareAndPrintInternetMax(ArrayList<Phone> phones, Comparator comparator) {
+        System.out.println("10 Subscribers with the most internet traffic: ");
+        Collections.sort(phones, comparator);
         for (int i = 0; i < 10; i++) {
             System.out.println(phones.get(i));
         }
@@ -54,5 +54,6 @@ public class PhoneService implements Calculable {
         }
         System.out.println("------------------------------------");
     }
+
 
 }

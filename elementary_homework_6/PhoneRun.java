@@ -15,14 +15,13 @@ public class PhoneRun {
         PhoneService service = new PhoneService();
 
         Comparator<Phone> comparator2 = Comparator.comparing(phone -> phone.getInternet());
-        Comparator<Phone> comparator = Comparator.comparing(phone -> phone.getSurname());
+       Comparator<Phone> comparator1 = Comparator.comparing(phone -> phone.getSurname());
 
         ArrayList<Phone> phones = new PhoneGenerator().generatePhone();
 
-
         service.checkTimeInCity(phones,500);
         service.checkTimeOutCity(phones);
-        service.compare(phones, comparator);
+        service.compare(phones, comparator1);
         service.compareAndPrintInternetMax(phones, comparator2);
 
     }
