@@ -19,9 +19,9 @@ public class PhoneRun {
 
         ArrayList<Phone> phones = new PhoneGenerator().generatePhone();
 
+        service.compare(phones, comparator1);
         service.checkTimeInCity(phones,500);
         service.checkTimeOutCity(phones);
-        service.compare(phones, comparator1);
         service.compareAndPrintInternetMax(phones, comparator2);
 
     }

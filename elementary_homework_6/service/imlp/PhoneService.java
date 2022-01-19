@@ -40,7 +40,7 @@ public class PhoneService implements Calculable {
 
     public void compareAndPrintInternetMax(ArrayList<Phone> phones, Comparator comparator) {
         System.out.println("10 Subscribers with the most internet traffic: ");
-        Collections.sort(phones, comparator);
+        Collections.sort(phones, comparator.reversed());
         for (int i = 0; i < 10; i++) {
             System.out.println(phones.get(i));
         }
