@@ -61,9 +61,7 @@ public class MyList {
     }
 
     public void print() {
-        int i = 0;
         for (Object obj : myList) {
-            i++;
             System.out.println(obj);
         }
     }
