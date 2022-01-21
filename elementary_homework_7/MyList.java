@@ -1,6 +1,7 @@
 package ua.hillel.tatiana.elementary_homework_7;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyList {
     private int count;
@@ -82,6 +83,14 @@ public class MyList {
 
     public int getCount() {
         return count;
+   }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyList myList1 = (MyList) o;
+        return count == myList1.count && Arrays.equals(myList, myList1.myList);
     }
 
 
