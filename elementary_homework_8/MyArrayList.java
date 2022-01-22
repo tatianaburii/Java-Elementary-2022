@@ -99,6 +99,7 @@ public class MyArrayList implements Collection {
 
     public boolean clear() {
         myArrayList = new MyArrayList[10];
+        this.count = 0;
         return true;
     }
 

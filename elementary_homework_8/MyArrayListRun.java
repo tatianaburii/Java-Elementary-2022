@@ -18,6 +18,12 @@ public class MyArrayListRun {
         System.out.println(myArrayList.equals(myArrayList2));
         System.out.println(myArrayList.equals(myArrayList3));
 
+        System.out.println(myArrayList.get(5));
+        myArrayList.clear();
+        System.out.println("----------");
+        myArrayList.print();
+        System.out.println(myArrayList.get(5));
+
 
     }
 }
