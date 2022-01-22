@@ -1,8 +1,7 @@
 package ua.hillel.tatiana.elementary_homework_8;
-
 import java.util.Arrays;
 
-public class MyArrayList {
+public class MyArrayList implements Collection {
     private int count;
     private Object[] myArrayList;
 
@@ -11,9 +10,10 @@ public class MyArrayList {
         count = 0;
     }
 
-    public void add(Object obj) {
+    public boolean add(Object obj) {
         checkAndChangeSize();
         myArrayList[count++] = obj;
+        return true;
     }
 
     private void checkAndChangeSize() {
@@ -25,7 +25,7 @@ public class MyArrayList {
         }
     }
 
-    public void add(int index, Object obj) {
+    public boolean add(int index, Object obj) {
         checkAndChangeSize();
         if (index > count) {
             index = count;
@@ -35,6 +35,7 @@ public class MyArrayList {
         }
         myArrayList[index] = obj;
         count++;
+        return true;
 
     }
 
@@ -49,7 +50,7 @@ public class MyArrayList {
         }
     }
 
-    public void delete(Object obj) {
+    public boolean delete(Object obj) {
         int flag = 0;
         for (int i = 0; i <= count; i++) {
             if (myArrayList[i].equals(obj)) {
@@ -58,6 +59,7 @@ public class MyArrayList {
             }
         }
         delete(flag);
+        return true;
     }
 
     public void print() {
@@ -73,7 +75,7 @@ public class MyArrayList {
         return myArrayList[index];
     }
 
-    public boolean contains(Object o) {
+    public boolean contain(Object o) {
         for (Object obj : myArrayList) {
             if (obj.equals(o)) {
                 return true;
@@ -81,25 +83,25 @@ public class MyArrayList {
         }
         return false;
     }
-    public boolean equals(Object obj) {
-        if (myArrayList == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
+
+    public boolean equals(Collection str) {
+
+        if (str == null || getClass() != str.getClass()) {
             return false;
         }
-        MyArrayList myArrayList1 = (MyArrayList) obj;
-        if(count != myArrayList1.count){
+        MyArrayList myArrayList1 = (MyArrayList) str;
+        if (count != myArrayList1.count) {
             return false;
         }
-        if(!(Arrays.equals(myArrayList, myArrayList1.myArrayList))){
+        if (!(Arrays.equals(myArrayList, myArrayList1.myArrayList))) {
             return false;
         }
         return true;
     }
 
-    public void clear() {
+    public boolean clear() {
         myArrayList = new MyArrayList[10];
+        return true;
     }
 
     public int size() {
