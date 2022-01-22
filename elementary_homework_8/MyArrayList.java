@@ -1,4 +1,5 @@
 package ua.hillel.tatiana.elementary_homework_8;
+
 import java.util.Arrays;
 
 public class MyArrayList implements Collection {
@@ -76,8 +77,8 @@ public class MyArrayList implements Collection {
     }
 
     public boolean contain(Object o) {
-        for (Object obj : myArrayList) {
-            if (obj.equals(o)) {
+        for (int i = 0; i < count; i++) {
+            if (o.equals(myArrayList[i])) {
                 return true;
             }
         }
@@ -85,18 +86,15 @@ public class MyArrayList implements Collection {
     }
 
     public boolean equals(Collection str) {
+        if (str == this) {
+            return true;
+        }
+        if (this.getClass() != str.getClass()) {
+            return false;
+        }
+        MyArrayList list = (MyArrayList) str;
+        return this.count == list.count && Arrays.equals(this.myArrayList, list.myArrayList);
 
-        if (str == null || getClass() != str.getClass()) {
-            return false;
-        }
-        MyArrayList myArrayList1 = (MyArrayList) str;
-        if (count != myArrayList1.count) {
-            return false;
-        }
-        if (!(Arrays.equals(myArrayList, myArrayList1.myArrayList))) {
-            return false;
-        }
-        return true;
     }
 
     public boolean clear() {

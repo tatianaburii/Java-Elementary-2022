@@ -11,10 +11,9 @@ public class MyArrayListRun {
             myArrayList2.add("object" + i);
 
         }
-
-       // myArrayList.add(3, "one44");
-        //myArrayList.delete("object6");
-        //System.out.println(myArrayList.contain("one44"));
+        //myArrayList.add(3, "one44");
+        myArrayList.delete("object6");
+        System.out.println(myArrayList.contain("one44"));
         myArrayList3 = myArrayList;
         System.out.println(myArrayList.equals(myArrayList2));
         System.out.println(myArrayList.equals(myArrayList3));
