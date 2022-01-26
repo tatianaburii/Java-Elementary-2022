@@ -1,33 +1,32 @@
 package ua.hillel.tatiana.elementary_homework_9;
 
-public class MyLinkedList implements Collection {
+public class MyLinkedList implements Collection, Printable {
     private Link first;
-    private Link current;
+    private Link last;
     int size;
 
     public MyLinkedList() {
         first = null;
-        current = null;
+        last = null;
         size = 0;
     }
 
     @Override
     public boolean add(String str) {    // to add items to the end of collection
-        if (str == null) {
-            throw new NullPointerException("argument is null");
-        }
-        if (!isEmpty()) {
-            Link previous = current;
-            current = new Link(str);
-            previous.next = current;
+        Link newLink = new Link(str);
+        if (size != 0) {
+            this.last.next = newLink;
+            newLink.previous = this.last;
+            this.last = newLink;
         } else {
-            current = new Link(str);
-            first = current;
+            last = new Link(str);
+            first = last;
         }
         size++;
-        return false;
+        return true;
     }
 
+    @Override
     public boolean addAll(Collection strColl) {
         for (int i = 0; i < strColl.size(); i++) {
             add(strColl.get(i));
@@ -41,76 +40,69 @@ public class MyLinkedList implements Collection {
         for (String str : strArr) {
             add(str);
         }
-        return false;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
+        return true;
     }
 
     @Override
     public boolean delete(int index) {
-        Link current = first;
-        Link previous = first;
-        int i = 0;
-        while (i != index) {
-            i++;
-            if (current.next == null) {
-                return false;
-            } else {
-                previous = current;
-                current = current.next;
-            }
-        }
-        if (current == first) {
-            first = first.next;
+        if (index == 0) {
+            Link link = this.first;
+            this.first = link.next;
+            this.first.previous = null;
+            link.next = null;
+            link.data = null;
+
+        } else if (index == size - 1) {
+            Link link = this.last;
+            this.last = link.previous;
+            this.last.next = null;
+            link.previous = null;
+            link.data = null;
+
         } else {
-            previous.next = current.next;
+            Link link = this.first;
+            for (int i = 0; i < index; i++) {
+                link = link.next;
+            }
+            link.previous.next = link.next;
+            link.next.previous = link.previous;
         }
         size--;
         return true;
     }
 
+
     @Override
     public boolean delete(String str) {
-        Link current = first;
-        Link previous = first;
-        while (!(current.data.equals(str))) {
-            if (current.next == null) {
-                return false;
-            } else {
-                previous = current;
-                current = current.next;
+        Link link = this.first;
+        for (int i = 0; i < size; i++) {
+            if (link.data.equals(str)) {
+                this.delete(i);
+                return true;
             }
+            link = link.next;
         }
-        if (current == first) {
-            first = first.next;
-        } else {
-            previous.next = current.next;
-        }
-        size--;
-        return true;
+
+        return false;
 
     }
 
     @Override
     public String get(int index) {
-        Link current = first;
-        int i = 0;
-        while (current != null) {
-            if (i == index) {
-                return current.data;
-            }
-            i++;
-            current = current.next;
+        if (index > size) {
+            return "no index";
         }
-        return "no index";
+        Link link = this.first;
+        for (int i = 0; i < index; i++) {
+            link = link.next;
+        }
+        return link.data;
     }
 
     @Override
     public boolean contains(String str) {
         Link current = first;
-        while (current != null) {
+        for (int i = 0; i < size; i++) {
             if (current.data.equals(str)) {
                 return true;
             }
@@ -122,7 +114,7 @@ public class MyLinkedList implements Collection {
     @Override
     public boolean clear() {
         first = null;
-        current = null;
+        last = null;
         size = 0;
         return true;
     }
@@ -132,6 +124,7 @@ public class MyLinkedList implements Collection {
         return size;
     }
 
+    @Override
     public boolean compare(Collection coll) {
         if (this == coll) {
             return true;
@@ -140,7 +133,7 @@ public class MyLinkedList implements Collection {
             return false;
         }
         for (int i = 0; i < coll.size(); i++) {
-            if(!this.get(i).equals(coll.get(i))) {
+            if (!this.get(i).equals(coll.get(i))) {
                 return false;
             }
         }
@@ -153,6 +146,7 @@ public class MyLinkedList implements Collection {
         return false;
     }
 
+    @Override
     public void printMyLinkList() {
         System.out.println(" List (first --> last): ");
         Link current = first;
@@ -162,8 +156,4 @@ public class MyLinkedList implements Collection {
         }
         System.out.println(" ");
     }
-
-
-
-
 }
