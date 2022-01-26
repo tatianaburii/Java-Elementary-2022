@@ -13,11 +13,11 @@ public class MyLinkedList implements Collection, Printable {
 
     @Override
     public boolean add(String str) {    // to add items to the end of collection
-        Link newLink = new Link(str);
         if (size != 0) {
-            this.last.next = newLink;
-            newLink.previous = this.last;
-            this.last = newLink;
+            Link link = new Link(str);
+            this.last.next = link;
+            link.previous = this.last;
+            this.last = link;
         } else {
             last = new Link(str);
             first = last;
