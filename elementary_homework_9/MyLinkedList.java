@@ -150,7 +150,7 @@ public class MyLinkedList implements Collection, Printable {
     public void printMyLinkList() {
         System.out.println(" List (first --> last): ");
         Link current = first;
-        while (current != null) {
+        for (int i = 0; i < size; i++) {
             current.displayLink();
             current = current.next;
         }

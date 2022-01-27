@@ -1,7 +1,6 @@
 package ua.hillel.tatiana.elementary_homework_7;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class MyList {
     private int count;
