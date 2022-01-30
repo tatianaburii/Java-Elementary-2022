@@ -2,6 +2,7 @@ package ua.hillel.tatiana.elementary_homework_8;
 
 
 import java.util.Iterator;
+import java.util.function.Consumer;
 
 public class CollectionIterator implements Iterator {
     private MyArrayList myArrayList;
@@ -14,12 +15,22 @@ public class CollectionIterator implements Iterator {
 
     @Override
     public Object next() {
-        if (hasNext()){
+        if (hasNext()) {
             return myArrayList.get(count++);
         }
         return null;
     }
-    public CollectionIterator(MyArrayList myArrayList){
+
+    public void remove() {
+        throw new UnsupportedOperationException("remove");
+    }
+
+    public void forEachRemaining(Consumer action) {
+        Iterator.super.forEachRemaining(action);
+    }
+
+
+    public CollectionIterator(MyArrayList myArrayList) {
         this.myArrayList = myArrayList;
     }
 
