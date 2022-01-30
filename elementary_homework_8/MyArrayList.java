@@ -20,7 +20,7 @@ public class MyArrayList implements Collection {
     private void checkAndChangeSize() {
         if (myArrayList.length < count + 2) {
             int new_size = myArrayList.length * 2;
-            String[] myArrayList1 = new String[new_size];
+            Object[] myArrayList1 = new Object[new_size];
             System.arraycopy(myArrayList, 0, myArrayList1, 0, myArrayList.length);
             myArrayList = myArrayList1;
         }
@@ -31,8 +31,8 @@ public class MyArrayList implements Collection {
         if (index > count) {
             index = count;
         }
-        for (int i = count; i >= index; i--) {
-            myArrayList[i + 1] = myArrayList[i];
+        if (count + 1 - index >= 0) {
+            System.arraycopy(myArrayList, index, myArrayList, index + 1, count + 1 - index);
         }
         myArrayList[index] = obj;
         count++;
@@ -40,12 +40,22 @@ public class MyArrayList implements Collection {
 
     }
 
+    public boolean clear() {
+        myArrayList = new MyArrayList[10];
+        this.count = 0;
+        return true;
+    }
+
+    public int size() {
+        return count;
+    }
+
     public void delete(int index) {
         if (index >= myArrayList.length) {
             System.out.println("no index");
         } else {
-            for (int i = index; i < count; i++) {
-                myArrayList[i] = myArrayList[i + 1];
+            if (count - index >= 0) {
+                System.arraycopy(myArrayList, index + 1, myArrayList, index, count - index);
             }
             count--;
         }
@@ -94,17 +104,6 @@ public class MyArrayList implements Collection {
         }
         MyArrayList list = (MyArrayList) str;
         return this.count == list.count && Arrays.equals(this.myArrayList, list.myArrayList);
-
-    }
-
-    public boolean clear() {
-        myArrayList = new MyArrayList[10];
-        this.count = 0;
-        return true;
-    }
-
-    public int size() {
-        return count;
     }
 
 }

@@ -1,5 +1,7 @@
 package ua.hillel.tatiana.elementary_homework_8;
 
+import java.util.Iterator;
+
 public interface Collection {
     boolean add(Object o);
     boolean add(int index, Object o);
@@ -9,4 +11,5 @@ public interface Collection {
     boolean equals (Collection str);
     boolean clear();
     int size();
+
 }
