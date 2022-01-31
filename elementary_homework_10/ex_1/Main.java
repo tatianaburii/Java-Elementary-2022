@@ -29,10 +29,7 @@ public class Main {
     //1. Напишите метод, который на вход получает коллекцию объектов, а возвращает коллекцию уже без дубликатов.
 
     public static ArrayList<String> unique(ArrayList<String> strings) {
-        HashSet<String> set = new HashSet<>(strings);
-        strings.clear();
-        strings.addAll(set);
-        return strings;
+        return new ArrayList<>(new HashSet<>(strings));
     }
 
 }
