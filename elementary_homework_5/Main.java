@@ -14,19 +14,19 @@ public class Main {
 
 
         /*
-        * Создать класс, спецификация которого приведена ниже. Определить конструкторы и методы setТип(),
-        * getТип(), toString(). Определить дополнительно методы в классе, создающем массив объектов.
-        * Задать критерий выбора данных и вывести эти данные на консоль. В каждом классе, обладающем информацией,
-        * должно быть объявлено несколько конструкторов.
+         * Создать класс, спецификация которого приведена ниже. Определить конструкторы и методы setТип(),
+         * getТип(), toString(). Определить дополнительно методы в классе, создающем массив объектов.
+         * Задать критерий выбора данных и вывести эти данные на консоль. В каждом классе, обладающем информацией,
+         * должно быть объявлено несколько конструкторов.
 
-        *Student: id, Фамилия, Имя, Отчество, Год рождения, Адрес, Телефон, Факультет, Курс, Группа.
+         *Student: id, Фамилия, Имя, Отчество, Год рождения, Адрес, Телефон, Факультет, Курс, Группа.
 
-        *Создать массив из 10 объектов.
-        * a) список студентов заданного факультета; - Факульет
-        *b) списки студентов для каждого факультета и курса; - Факультет, Группа
-        *c) список студентов, родившихся после заданного года; - Год рождения
-        *d) список учебной группы. - Группа
-        **/
+         *Создать массив из 10 объектов.
+         * a) список студентов заданного факультета; - Факульет
+         *b) списки студентов для каждого факультета и курса; - Факультет, Группа
+         *c) список студентов, родившихся после заданного года; - Год рождения
+         *d) список учебной группы. - Группа
+         **/
 
 
         //Створила 10 студентів, але залишила варіант створення через консоль
@@ -83,7 +83,7 @@ public class Main {
     //друкує перелік студентів заданого факнльтету
     public static void printFacultyStudentsList(Student[] students) throws IOException {
         System.out.println("Choose name of Faculty: ");
-        for (String faculty: createListOfFaculty(students)) {
+        for (String faculty : createListOfFaculty(students)) {
             System.out.println(faculty);
 
         }
@@ -99,7 +99,7 @@ public class Main {
     //друкує перелік студентів заданої групи
     public static void printGroupStudentsList(Student[] students) throws IOException {
         System.out.println("Choose name of Group: ");
-        for (String group: createListOfGroups(students)) {
+        for (String group : createListOfGroups(students)) {
             System.out.println(group);
         }
 
@@ -135,12 +135,10 @@ public class Main {
         for (Student student : students) {
             int flag = 0;
             for (String faculty : faculties) {
-
                 if (faculty.equals(student.getFaculty())) {
                     flag = 1;
                     break;
-                }
-            }
+                }}
             if (flag == 0) {
                 faculties.add(student.getFaculty());
             }
