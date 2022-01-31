@@ -19,17 +19,20 @@ public class Main {
         }
         System.out.println("---------------------");
 
-        HashSet<String> strings1 = sort(strings);
+        ArrayList<String> strings1 = unique(strings);
+
         for (String s : strings1) {
             System.out.println(s);
-
         }
 
     }
     //1. Напишите метод, который на вход получает коллекцию объектов, а возвращает коллекцию уже без дубликатов.
 
-    public static HashSet<String> sort(ArrayList<String> strings) {
-        return new HashSet<>(strings);
+    public static ArrayList<String> unique(ArrayList<String> strings) {
+        HashSet<String> set = new HashSet<>(strings);
+        strings.clear();
+        strings.addAll(set);
+        return strings;
     }
 
 }
